@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑文章 | 知识星球</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <h1><i class="fas fa-edit"></i> <span id="page-title">创建新文章</span></h1>
+            <div class="user-actions">
+                <a href="index.html" class="btn btn-sm btn-outline"><i class="fas fa-arrow-left"></i> 返回列表</a>
+            </div>
+        </header>
+
+        <div class="card">
+            <div class="card-body">
+                <form id="articleForm">
+                    <input type="hidden" id="articleId" name="articleId">
+                    
+                    <div class="form-group">
+                        <label for="title" class="required">文章标题</label>
+                        <input type="text" id="title" name="title" class="form-control" placeholder="为您的文章起个吸引人的标题..." required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="category">文章分类</label>
+                                <select id="category" name="category" class="form-control">
+                                    <option value="">-- 选择分类 --</option>
+                                    <option value="daily">每日精选</option>
+                                    <option value="article">美文摘要</option>
+                                    <option value="highschool">高中阅读</option>
+                                    <option value="cet">四六级考</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="tag">文章标签</label>
+                                <input type="text" id="tag" name="tag" class="form-control" placeholder="输入标签">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="excerpt" class="required">文章摘要</label>
+                        <textarea id="excerpt" name="excerpt" class="form-control" placeholder="简要描述文章内容，这将在文章列表中显示..." rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="content" class="required">文章内容</label>
+                        <textarea id="content" name="content" class="form-control" placeholder="在这里写下您的精彩内容..." rows="10" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label>上传附件</label>
+                                <div class="file-upload-card" id="fileUploadArea">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <h3>点击或拖拽文件到此处</h3>
+                                    <p>支持 PDF, DOC, DOCX, TXT 格式</p>
+                                    <input type="file" id="articleFile" name="articleFile" class="file-upload-input" accept=".pdf,.doc,.docx,.txt">
+                                    <div class="file-info" id="fileInfo"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label>特色封面</label>
+                                <div class="file-upload-card" id="imageUploadArea">
+                                    <i class="fas fa-image"></i>
+                                    <h3>上传封面图片</h3>
+                                    <p>推荐尺寸 1200×630 像素</p>
+                                    <input type="file" id="coverImage" name="coverImage" class="file-upload-input" accept="image/*">
+                                </div>
+                                <div class="image-preview-container" id="imagePreviewContainer">
+                                    <img src="" class="image-preview" id="coverImagePreview" alt="封面预览">
+                                    <div class="remove-image" id="removeImageBtn">
+                                        <i class="fas fa-times"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="author">作者</label>
+                                <input type="text" id="author" name="author" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label for="readTime">阅读时间</label>
+                                <input type="text" id="readTime" name="readTime" class="form-control" placeholder="例如：5分钟">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <button type="button" id="cancel-btn" class="btn btn-outline">
+                            <i class="fas fa-times"></i>取消
+                        </button>
+                        <button type="button" id="draft-btn" class="btn btn-secondary">
+                            <i class="fas fa-save"></i>保存草稿
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>发布文章
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html> 
